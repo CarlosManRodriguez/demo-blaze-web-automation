@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="suite 1" verbose="1">
+    <listeners>
+        <listener class-name="utils.listeners.ListenersTestNG"/>
+
+    </listeners>
+    <parameter name="browser" value="chrome"/>
+    <parameter name="url" value="https://www.demoblaze.com/"/>
+    <test name="Demo Blaze Regresion">
+        <classes>
+            <class name="tests.MainTest"/>
+        </classes>
+
+    </test>
+
+
+</suite>
+
+
+
