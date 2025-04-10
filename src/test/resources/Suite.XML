@@ -5,7 +5,7 @@
         <listener class-name="utils.listeners.ListenersTestNG"/>
 
     </listeners>
-    <parameter name="browser" value="chrome"/>
+    <parameter name="browser" value="edge"/>
     <parameter name="url" value="https://www.demoblaze.com/"/>
     <test name="Demo Blaze Regresion">
         <classes>
