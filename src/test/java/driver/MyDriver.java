@@ -1,9 +1,6 @@
 package driver;
 
-import io.github.bonigarcia.wdm.config.DriverManagerType;
-import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
-import io.github.bonigarcia.wdm.managers.EdgeDriverManager;
-import io.github.bonigarcia.wdm.managers.FirefoxDriverManager;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -13,21 +10,21 @@ public class MyDriver {
     private WebDriver driver;
 
     public MyDriver(String browser) {
-        switch (browser) {
+        switch (browser.toLowerCase()) {
             case "firefox":
-                FirefoxDriverManager.getInstance(DriverManagerType.FIREFOX).setup();
+                WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
                 break;
             case "chrome":
-                ChromeDriverManager.getInstance(DriverManagerType.CHROME).setup();
+                WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
                 break;
             case "edge":
-                EdgeDriverManager.getInstance(DriverManagerType.EDGE).setup();
+                WebDriverManager.edgedriver().setup();
                 driver = new EdgeDriver();
                 break;
             default:
-                break;
+                throw new IllegalArgumentException("Navegador no valido " + browser);
         }
     }
 
